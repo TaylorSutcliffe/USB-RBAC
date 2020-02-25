@@ -1,0 +1,6 @@
+flask
+flask-sqlalchemy
+pymysql
+flask_wtf
+requests
+gunicorn

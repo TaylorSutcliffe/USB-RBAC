@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Login {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% if session['emp_id'] %}
+    <a href="{{ url_for('index') }}">Already Logged in </a>
+{% else %}
+  <form method="post" action="/login">
+    <label for="username"> Username </label><br>
+    <input name="username" id="username" required><br>
+    <br>
+    <label for="password">Password</label><br>
+    <input type="password" name="password" id="password"><br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+{% endif %}
+{% endblock %}
