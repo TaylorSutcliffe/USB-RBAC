@@ -1,0 +1,18 @@
+{"users":[
+    {
+        "username": "B00001",
+        "password": "B00001",
+        "role": "student"
+    },
+    {
+        "username": "B00002",
+        "password": "B00002",
+        "role": "safetyofficer"
+
+    },
+    {
+        "username": "B00001",
+        "password": "B00001",
+        "role": "buildingmanager"
+
+    }]}
