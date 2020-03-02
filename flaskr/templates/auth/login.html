@@ -6,7 +6,7 @@
 
 {% block content %}
 {% if session['username'] %}
-    <a href="{{ url_for('index') }}">Already Logged in </a>
+    <a href="{{ url_for('index', room = 'G.065') }}">Already Logged in </a>
 {% else %}
   <form method="post" action="/auth/login">
     <label for="username"> Username </label><br>
