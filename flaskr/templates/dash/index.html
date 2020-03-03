@@ -25,6 +25,7 @@
 {% block content %}
 {% if session['username'] %}
     <p> user {{g.user}} logged in </p>
+    <img src="{{ plot }}"/>
 {% else %}
   <p> no user logged in </p>
 {% endif %}
