@@ -18,9 +18,9 @@ def login():
         for user in users["users"]:
             if username == user['username'] and password == user['password']:
                 session['username'] = username
-                return redirect(url_for('index'))
-            else: 
-                flash('login failed')
+                return redirect(url_for('index', room = 'G.062'))
+        
+
 
     return render_template('auth/login.html')
 
@@ -39,4 +39,4 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('index', room = 'G.062'))

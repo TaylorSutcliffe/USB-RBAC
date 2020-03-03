@@ -36,6 +36,7 @@ def create_app(test_config=None):
     from . import dash
 
     app.register_blueprint(dash.bp)
-    app.add_url_rule('/', endpoint='index')
+    #app.add_url_rule('/', endpoint='index')
+    app.add_url_rule('/<string:room>/', endpoint='index')
 
     return app

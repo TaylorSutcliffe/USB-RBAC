@@ -1,21 +1,31 @@
+
 # Group 11 
 
 ## RBAC system for accessing Urban Sciences Building Data  
 
+## Setup and Run
+###### with python 3 installed in parent directory 
 
-###### SETUP
+`py -3 -m venv venv
 
-install python 3.7.X
+Set-ExecutionPolicy Unrestricted -Force
 
-install flask (I used pip i belive it comes with the python istallation)
+venv\Scripts\activate`
+
+(this should set up the virtual env for the project and you should see venv on the terminal)
 
 
-###### RUN
+###### first run requires:
 
-Run on windows powershell by navigating to project directory and typing 
+`pip install flask
 
-` $env:FLASK_APP = "flaskr" `
+pip install matplotlib`
 
-` $env:FLASK_ENV = "development" `
+###### after that to run (and from now on as venv is set up)
 
-` flask run `
+`$env:FLASK_APP = "flaskr"
+
+$env:FLASK_ENV = "development"
+
+py -m flask run`
+
