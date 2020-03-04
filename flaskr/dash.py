@@ -39,12 +39,14 @@ def index(room):
 
 def generateVis():
     #example visulisation replace with appropriate
+
+    
     lightlevel_3015.lightlevel_3015()
     lightlevel_3015_date,lightlevel_3015_time,lightlevel_3015_durations,lightlevel_3015_values = lightlevel_3015.lightlevel_3015()
     
     occupancy_3015.occupancy_3015()
     occupancy_3015_date,occupancy_3015_time,occupancy_3015_durations,occupancy_3015_values = occupancy_3015.occupancy_3015()
-    print(occupancy_3015_values)
+   
     
     humidity_6025.humidity_6025()
     humidity_6025_date,humidity_6025_time,humidity_6025_durations,humidity_6025_values = humidity_6025.humidity_6025()
