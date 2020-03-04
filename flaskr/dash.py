@@ -10,6 +10,7 @@ import io
 import base64
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
+import lightlevel_3015,occupancy_3015,humidity_6025,occupancy_4005,CO2_4005,atrium_temperature 
  
 
 
@@ -34,6 +35,12 @@ def index(room):
 def generateVis():
     #example visulisation replace with appropriate
     lightlevel_3015.lightlevel_3015()
+    occupancy_3015.occupancy_3015()
+    humidity_6025.humidity_6025()
+    occupancy_4005.occupancy_4005()
+    CO2_4005.CO2_4005()
+    atrium_temperature.atrium.temperature()
+    
     fig = Figure()
     axis = fig.add_subplot(1, 1, 1)
     axis.set_title("title")
