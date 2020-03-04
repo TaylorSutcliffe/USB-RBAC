@@ -1,6 +1,5 @@
 import requests
 import simplejson as json
-import numpy as np
 
 def lightlevel_3015():
     data = requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=3.015&metric="BrightnessValue"')
@@ -32,9 +31,6 @@ def lightlevel_3015():
     #print(time)
 
 
-    np.savetxt("3.015_brightness_date.csv",date,delimiter=',',fmt='%s')
-    np.savetxt("3.015_brightness_time.csv",time,delimiter=',',fmt='%s')
-    np.savetxt("3.015_brightness_duration.csv",durations,delimiter=',',fmt='%s')
-    np.savetxt("3.015_brightness_values.csv",values,delimiter=',',fmt='%s')
+   
 
     return date,time,durations,values

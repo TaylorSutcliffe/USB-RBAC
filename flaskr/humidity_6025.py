@@ -1,6 +1,6 @@
 import requests
 import simplejson as json
-import numpy as np
+
 
 def humidity_6025():
     data= requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=6.025&metric=humidity')
@@ -33,9 +33,6 @@ def humidity_6025():
     #print(time)
 
 
-    np.savetxt("6.025_humidity_date.csv",date,delimiter=',',fmt='%s')
-    np.savetxt("6.025_humidity_time.csv",time,delimiter=',',fmt='%s')
-    np.savetxt("6.025_humidity_duration.csv",durations,delimiter=',',fmt='%s')
-    np.savetxt("6.025_humidity_values.csv",values,delimiter=',',fmt='%s')
+   
 
     return date,time,durations,values

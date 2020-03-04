@@ -1,6 +1,6 @@
 import requests
 import simplejson as json
-import numpy as np
+
 
 def occupancy_4005():
     data= requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=4.005&metric=occupancy')
@@ -34,10 +34,8 @@ def occupancy_4005():
     #print(date)
     #print(time)
 
-    np.savetxt("4.005_occupancy_date.csv",date,delimiter=',',fmt='%s')
-    np.savetxt("4.005_occupancy_time.csv",time,delimiter=',',fmt='%s')
-    np.savetxt("4.005_occupancy_duration.csv",durations,delimiter=',',fmt='%s')
-    np.savetxt("4.005_occupancy_values.csv",values,delimiter=',',fmt='%s')
+    
+    return date,time,durations,values
 
         
         

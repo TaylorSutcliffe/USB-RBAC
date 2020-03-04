@@ -1,6 +1,6 @@
 import requests
 import simplejson as json
-import numpy as np
+
 
 def atrium_temperature():
     data = requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=G.062&metric="room temperature"')
@@ -32,7 +32,5 @@ def atrium_temperature():
     #print(time)
 
 
-    np.savetxt("atrium_temp_date.csv",date,delimiter=',',fmt='%s')
-    np.savetxt("atrium_temp_time.csv",time,delimiter=',',fmt='%s')
-    np.savetxt("atrium_temp_duration.csv",durations,delimiter=',',fmt='%s')
-    np.savetxt("atrium_temp_values.csv",values,delimiter=',',fmt='%s')
+    
+    return date,time,durations,values
