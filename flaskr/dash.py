@@ -10,7 +10,7 @@ import io
 import base64
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-from APIdata import 3.015-lightlevel,3.015-occupancy,4.005-CO2,4.005-occupancy,6.025-humidity,atrium-temperature
+ 
 
 
 bp = Blueprint('dash', __name__)
@@ -33,7 +33,7 @@ def index(room):
 
 def generateVis():
     #example visulisation replace with appropriate
-    3.015-lightlevel.3015_lightlevel()
+    lightlevel_3015.lightlevel_3015()
     fig = Figure()
     axis = fig.add_subplot(1, 1, 1)
     axis.set_title("title")

@@ -2,8 +2,8 @@ import requests
 import simplejson as json
 import numpy as np
 
-def 3015_lightlevel():
-    data = requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=3.015&metric="BrightnessValue"')
+def atrium_temperature():
+    data = requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=G.062&metric="room temperature"')
     obj = data.json()
     #print(obj['items'][0]['feed'][0]['timeseries'][0]['timeseriesId'])
     timeseriesid = str(obj['items'][0]['feed'][0]['timeseries'][0]['timeseriesId'])
@@ -18,9 +18,9 @@ def 3015_lightlevel():
     values = []
 
     for val in obj3:
-    times.append(val['time'])
-    durations.append(val['duration'])
-    values.append(val['value'])
+        times.append(val['time'])
+        durations.append(val['duration'])
+        values.append(val['value'])
 
     #print(times)
     #print(durations)
@@ -32,7 +32,7 @@ def 3015_lightlevel():
     #print(time)
 
 
-    np.savetxt("3.015_brightness_date.csv",date,delimiter=',',fmt='%s')
-    np.savetxt("3.015_brightness_time.csv",time,delimiter=',',fmt='%s')
-    np.savetxt("3.015_brightness_duration.csv",durations,delimiter=',',fmt='%s')
-    np.savetxt("3.015_brightness_values.csv",values,delimiter=',',fmt='%s')
+    np.savetxt("atrium_temp_date.csv",date,delimiter=',',fmt='%s')
+    np.savetxt("atrium_temp_time.csv",time,delimiter=',',fmt='%s')
+    np.savetxt("atrium_temp_duration.csv",durations,delimiter=',',fmt='%s')
+    np.savetxt("atrium_temp_values.csv",values,delimiter=',',fmt='%s')

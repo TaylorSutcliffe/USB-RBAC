@@ -2,8 +2,8 @@ import requests
 import simplejson as json
 import numpy as np
 
-def 3015_occupancy():
-    data= requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=3.015&metric=occupancy')
+def humidity_6025():
+    data= requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=6.025&metric=humidity')
     obj = data.json()
     #print(obj['items'][0]['feed'][0]['timeseries'][0]['timeseriesId'])
     timeseriesid = str(obj['items'][0]['feed'][0]['timeseries'][0]['timeseriesId'])
@@ -19,10 +19,10 @@ def 3015_occupancy():
 
 
     for val in obj3:
-    times.append(val['time'])
-    durations.append(val['duration'])
-    values.append(val['value'])
-    
+        times.append(val['time'])
+        durations.append(val['duration'])
+        values.append(val['value'])
+        
     #print(times)
     #print(durations)
     #print(values)
@@ -33,7 +33,7 @@ def 3015_occupancy():
     #print(time)
 
 
-    np.savetxt("3.015_occupancy_date.csv",date,delimiter=',',fmt='%s')
-    np.savetxt("3.015_occupancy_time.csv",time,delimiter=',',fmt='%s')
-    np.savetxt("3.015_occupancy_duration.csv",durations,delimiter=',',fmt='%s')
-    np.savetxt("3.015_occupancy_values.csv",values,delimiter=',',fmt='%s')
+    np.savetxt("6.025_humidity_date.csv",date,delimiter=',',fmt='%s')
+    np.savetxt("6.025_humidity_time.csv",time,delimiter=',',fmt='%s')
+    np.savetxt("6.025_humidity_duration.csv",durations,delimiter=',',fmt='%s')
+    np.savetxt("6.025_humidity_values.csv",values,delimiter=',',fmt='%s')

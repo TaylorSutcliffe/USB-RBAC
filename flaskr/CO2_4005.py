@@ -2,8 +2,8 @@ import requests
 import simplejson as json
 import numpy as np
 
-def 4005_occupancy():
-    data= requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=4.005&metric=occupancy')
+def C02_4005():    
+    data= requests.get('https://api.usb.urbanobservatory.ac.uk/api/v2.0a/sensors/entity?meta:roomNumber=4.005&metric=CO2')
     obj = data.json()
     #print(obj['items'][0]['feed'][0]['timeseries'][0]['timeseriesId'])
     timeseriesid= obj['items'][0]['feed'][0]['timeseries'][0]['timeseriesId']
@@ -34,10 +34,10 @@ def 4005_occupancy():
     #print(date)
     #print(time)
 
-    np.savetxt("4.005_occupancy_date.csv",date,delimiter=',',fmt='%s')
-    np.savetxt("4.005_occupancy_time.csv",time,delimiter=',',fmt='%s')
-    np.savetxt("4.005_occupancy_duration.csv",durations,delimiter=',',fmt='%s')
-    np.savetxt("4.005_occupancy_values.csv",values,delimiter=',',fmt='%s')
+    np.savetxt("4.005_CO2_date.csv",date,delimiter=',',fmt='%s')
+    np.savetxt("4.005_CO2_time.csv",time,delimiter=',',fmt='%s')
+    np.savetxt("4.005_CO2_duration.csv",durations,delimiter=',',fmt='%s')
+    np.savetxt("4.005_CO2_values.csv",values,delimiter=',',fmt='%s')
 
         
         
