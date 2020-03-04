@@ -19,9 +19,9 @@ def occupancy_3015():
 
 
     for val in obj3:
-    times.append(val['time'])
-    durations.append(val['duration'])
-    values.append(val['value'])
+        times.append(val['time'])
+        durations.append(val['duration'])
+        values.append(val['value'])
     
     #print(times)
     #print(durations)
