@@ -28,9 +28,9 @@ pip install matplotlib
 ###### after that to run (and from now on as venv is set up)
 
 ```
-set FLASK_APP = flaskr
+set FLASK_APP=flaskr
 
-set FLASK_ENV = development
+set FLASK_ENV=development
 
 py -m flask run
 ```
