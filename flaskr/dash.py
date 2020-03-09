@@ -16,7 +16,10 @@ from flaskr import humidity_6025
 from flaskr import occupancy_4005
 from flaskr import CO2_4005
 from flaskr import atrium_temperature 
- 
+import numpy as np
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 
 bp = Blueprint('dash', __name__)
@@ -62,6 +65,9 @@ def generateVis():
 
     atrium_temperature.atrium_temperature()
     atrium_temperature_date,atrium_temperature_time,atrium_temperature_durations,atrium_temperature_values = atrium_temperature.atrium_temperature()
+
+    df = pd.Dataframe({'x':atrium_temperature_date,'y':atrium_temperature_values})
+    df.plot('x','y',kind='scatter')
     
     fig = Figure()
     axis = fig.add_subplot(1, 1, 1)
