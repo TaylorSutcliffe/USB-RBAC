@@ -48,7 +48,7 @@ def generateVis():
     #lightlevel_3015_date,lightlevel_3015_time,lightlevel_3015_durations,lightlevel_3015_values = lightlevel_3015.lightlevel_3015()
     
     #occupancy_3015.occupancy_3015()
-    #occupancy_3015_date,occupancy_3015_time,occupancy_3015_durations,occupancy_3015_values = occupancy_3015.occupancy_3015()
+    occupancy_3015_date,occupancy_3015_time,occupancy_3015_durations,occupancy_3015_values = occupancy_3015.occupancy_3015()
    
     
     #humidity_6025.humidity_6025()
@@ -70,12 +70,24 @@ def generateVis():
     #df.plot('x','y',kind='scatter')
     
     fig = Figure()
-    axis = fig.add_subplot(1, 1, 1)
-    axis.set_title("title")
-    axis.set_xlabel("x-axis")
-    axis.set_ylabel("y-axis")
+    axis = fig.add_subplot(2, 1, 1)
+    axis.set_title("Atrium Temp")
+    axis.set_xlabel("date")
+    axis.set_ylabel("temp")
     axis.grid()
     axis.plot(df['x'], df['y'], "ro-")
+
+    ax2 = fig.add_subplot(2, 1, 2)
+    ax2.set_title(occupancy_3015_date[0])
+    ax2.set_xlabel("time")
+    ax2.set_ylabel("occupancy")
+    ax2.grid()
+    ax2.plot_time(atrium_temperature_time[:78], occupancy_3015_values, "ro-")
+
+    fig.tight_layout()
+
+
+
 
     pngImage = io.BytesIO()
     FigureCanvas(fig).print_png(pngImage)
