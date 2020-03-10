@@ -82,7 +82,7 @@ def generateVis():
     ax2.set_xlabel("time")
     ax2.set_ylabel("occupancy")
     ax2.grid()
-    ax2.plot_time(atrium_temperature_time[:78], occupancy_3015_values, "ro-")
+    ax2.plot(atrium_temperature_time[:78], occupancy_3015_values, "ro-")
 
     fig.tight_layout()
 
