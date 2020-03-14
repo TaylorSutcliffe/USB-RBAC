@@ -11,8 +11,10 @@
 
     },
     {
-        "username": "B00001",
-        "password": "B00001",
+        "username": "B00003",
+        "password": "B00003",
         "role": "buildingmanager"
 
-    }]}
+    }
+        ]
+}
