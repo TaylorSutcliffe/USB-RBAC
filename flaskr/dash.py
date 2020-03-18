@@ -102,11 +102,11 @@ def generateVis(room):
 
         #CO2_4005_time.sort()
         df4 = pd.DataFrame({'x': CO2_4005_time[:45], 'y': CO2_4005_values[:45]})
-        print(df4)
+        #print(df4)
         #df4_dates = mpl.dates.date2num(CO2_4005_time[:45])
         #mpl.pyplot.plot_date(df4_dates, CO2_4005_values[:45])
 
-        if (g.user['role'] == 'buildingmanager'or g.user['role'] =='safetyofficer'):
+        if (g.user['role'] == 'buildingmanager' or g.user['role'] =='safetyofficer'):
             ax3 = fig.add_subplot(2, 1, 1)
             ax3.set_title("occupancy 4005")
             ax3.set_xlabel("time")
@@ -126,6 +126,7 @@ def generateVis(room):
             plt.setp(ax4.xaxis.get_majorticklabels(), rotation='vertical')
             ax4.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
             ax4.plot(df4['x'], df4['y'])
+            ax4.fill_between(df4['x'], df4['y'], 471, where = (df4['y'] > 470), facecolor = 'r')
 
     if(room == '6.025'):
         humidity_6025_date,humidity_6025_time,humidity_6025_durations,humidity_6025_values = humidity_6025.humidity_6025()

@@ -2,9 +2,7 @@
 
 {% block header %}
   <h1>{% block title %} Dashboard - {{room}} {% endblock %}</h1>
-  {% if g.user['role'] == None %}
-  <a href="{{ url_for('index', room = 'G.062') }}"> Atrium </a>
-  {% elif g.user['role'] == 'student' %}
+  {% if g.user['role'] == 'student' %}
   <a href="{{ url_for('index', room = 'G.062') }}"> Atrium </a>
    | <a href="{{ url_for('index',room =  '3.015') }}"> 3.015 </a>
    | <a href="{{ url_for('index', room = '4.005') }}"> 4.005 </a>
@@ -18,15 +16,12 @@
   | <a href="{{ url_for('index', room = '3.015') }}"> 3.015 </a>
   | <a href="{{ url_for('index', room = '4.005') }}"> 4.005 </a>
   |<a href="{{ url_for('index',room =  '6.025') }}"> 6.025 </a>
+  {% else %}
+  <a href="{{ url_for('index', room = 'G.062') }}"> Atrium </a>
   {% endif %}
 
 {% endblock %}
 
 {% block content %}
-{% if session['username'] %}
-    <p> user {{g.user}} logged in </p>
     <img src="{{ plot }}"/>
-{% else %}
-  <p> no user logged in </p>
-{% endif %}
-{% endblock %} 
+{% endblock %}
