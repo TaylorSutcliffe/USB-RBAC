@@ -106,7 +106,7 @@ def generateVis(room):
         df8 = dtCreate(CO2_4005_date,CO2_4005_time,CO2_4005_values)
 
         if (g.user['role'] == 'buildingmanager'):
-            ax3 = fig.add_subplot(2, 1, 1)
+            ax3 = fig.add_subplot(2, 1, 2)
             ax3.set_title("occupancy 4005")
             ax3.set_xlabel("time")
             ax3.set_ylabel("occupancy")
@@ -117,7 +117,7 @@ def generateVis(room):
             ax3.plot_date(df3['x'], df3['y'], xdate=True, linestyle="-", drawstyle = "steps")
 
         if (g.user['role'] == 'buildingmanager' or g.user['role'] =='safetyofficer'):
-            ax4 = fig.add_subplot(2, 1, 2)
+            ax4 = fig.add_subplot(2, 1, 1)
             ax4.set_title("CO2 4005")
             ax4.set_xlabel("time")
             ax4.set_ylabel("CO2 concentration")
