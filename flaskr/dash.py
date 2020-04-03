@@ -2,20 +2,13 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
 from werkzeug.exceptions import abort
-#from . import vis
-#from vis import generateVis
 
 import matplotlib.pyplot as plt
 import io
 import base64
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-from flaskr import lightlevel_3015
-from flaskr import occupancy_3015
-from flaskr import humidity_6025
-from flaskr import occupancy_4005
-from flaskr import CO2_4005
-from flaskr import atrium_temperature
+from flaskr import lightlevel_3015, occupancy_3015, humidity_6025, humidity_6025, occupancy_4005, CO2_4005, atrium_temperature
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
@@ -43,25 +36,18 @@ def index(room):
 
 
 def generateVis(room):
-    #example visulisation replace with appropriate
    
     fig = Figure(figsize=(20,10),dpi=100)
     if(room == 'G.062'):
         atrium_temperature_date,atrium_temperature_time,atrium_temperature_durations,atrium_temperature_values = atrium_temperature.atrium_temperature()
-        #df = pd.DataFrame({'x':atrium_temperature_time[::-1],'y':atrium_temperature_date[::-1]})
         df = dtCreate(atrium_temperature_date, atrium_temperature_time, atrium_temperature_values)
         axis = fig.add_subplot(1, 1, 1)
         axis.set_title("Atrium Temp")
-        #axis.set_xlabel(f"{atrium_temperature_date[0]} - {atrium_temperature_date[-1]} time")
+        
         axis.set_ylabel("temp (oC)")
         axis.grid() 
-        #tick_spacing = 5
-        #plt.setp(axis.xaxis.get_majorticklabels(), rotation='vertical')
-        #axis.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
+        
         axis.plot_date(df['x'], df['y'], xdate=True, linestyle="-")
-        #dates = set(atrium_temperature_date)
-        #for i, j in zip(dates, np.arange(0.05, 9.8, 1/len(dates))):
-        #    axis.text(j, -0.1, i, horizontalalignment='center', verticalalignment='center', transform=axis.transAxes)
     
     if(room == '3.015'):
 
@@ -73,7 +59,6 @@ def generateVis(room):
         occupancy_3015_date,occupancy_3015_time,occupancy_3015_durations,occupancy_3015_values = occupancy_3015.occupancy_3015()
         df2 = dtCreate(occupancy_3015_date, occupancy_3015_time, occupancy_3015_values)
         
-        #if(g.user['role'] == 'student'):
         ax2 = fig.add_subplot(2, 1, 1)
         ax2.set_title("occupancy 3015")
         ax2.set_xlabel("time")
@@ -81,8 +66,6 @@ def generateVis(room):
         ax2.grid()
         tick_spacing = 1
 
-        #plt.setp(ax2.xaxis.get_majorticklabels(), rotation='vertical')
-        #ax2.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
         ax2.set_yticks([0, 1])
         ax2.plot_date(df2['x'], df2['y'], xdate=True, linestyle="-", drawstyle = "steps")
 
@@ -93,8 +76,6 @@ def generateVis(room):
             ax5.set_ylabel("nit")
             ax5.grid()
             tick_spacing5 = 1
-            #plt.setp(ax5.xaxis.get_majorticklabels(), rotation='vertical')
-            #ax5.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing5))
             ax5.plot_date(df5['x'], df5['y'], xdate=True, linestyle="-")
 
     if(room == '4.005'):
@@ -111,9 +92,6 @@ def generateVis(room):
             ax3.set_xlabel("time")
             ax3.set_ylabel("occupancy")
             ax3.grid()
-            #tick_spacing = 5
-            #plt.setp(ax3.xaxis.get_majorticklabels(), rotation='vertical')
-            #ax3.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
             ax3.plot_date(df3['x'], df3['y'], xdate=True, linestyle="-", drawstyle = "steps")
 
         if (g.user['role'] == 'buildingmanager' or g.user['role'] =='safetyofficer'):
@@ -122,9 +100,6 @@ def generateVis(room):
             ax4.set_xlabel("time")
             ax4.set_ylabel("CO2 concentration")
             ax4.grid()
-            #tick_spacing = 5
-            #plt.setp(ax4.xaxis.get_majorticklabels(), rotation='vertical')
-            #ax4.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
             ax4.plot_date(df8['x'], df8['y'], xdate=True, linestyle="-")
             ax4.fill_between(df8['x'], df8['y'], 1000, where = (df8['y'] > 1000), facecolor = 'r')
 
@@ -137,9 +112,6 @@ def generateVis(room):
         ax6.set_xlabel("time")
         ax6.set_ylabel("cd/m2")
         ax6.grid()
-        #tick_spacing = 5
-        #plt.setp(ax6.xaxis.get_majorticklabels(), rotation='vertical')
-        #ax6.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
         ax6.plot_date(df6['x'], df6['y'], xdate=True, linestyle="-")
 
     fig.tight_layout()
